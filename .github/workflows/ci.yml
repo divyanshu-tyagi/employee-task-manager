@@ -51,6 +51,8 @@ jobs:
           PGDATABASE: taskflow
           JWT_SECRET: TestSecretKeyForCIEnvironment1234567890
           JWT_EXPIRATION: 86400000
+          SPRING_FLYWAY_ENABLED: true
+          SPRING_JPA_HIBERNATE_DDL_AUTO: none
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
