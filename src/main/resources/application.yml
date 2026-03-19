@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: TaskFlow
+
+  datasource:
+    url: jdbc:postgresql://${PGHOST:localhost}:${PGPORT:5433}/${PGDATABASE:taskflow}
+    username: ${PGUSER:postgres}
+    password: ${PGPASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+
+    flyway:
+      enabled: true
+      locations: classpath:db/migration
+      baseline-on-migrate: true
+
+  server:
+    port: ${PORT:8080}
+
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration: ${JWT_EXPIRATION:86400000}
+
+  gemini:
+    api-key: ${GEMINI_API_KEY:none}
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent
+
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html
+    api-docs:
+      path: /v3/api-docs
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,metrics
+    endpoint:
+      health:
+        show-details: always
+
