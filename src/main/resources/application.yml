@@ -3,14 +3,14 @@ spring:
     name: TaskFlow
 
   datasource:
-    url: jdbc:postgresql://${PGHOST:localhost}:${PGPORT:5433}/${PGDATABASE:taskflow}
-    username: ${PGUSER:postgres}
-    password: ${PGPASSWORD:postgres}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/taskflow}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:none}
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -28,9 +28,9 @@ spring:
     secret: ${JWT_SECRET}
     expiration: ${JWT_EXPIRATION:86400000}
 
-  gemini:
-    api-key: ${GEMINI_API_KEY:none}
-    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent
+#  gemini:
+#    api-key: ${GEMINI_API_KEY:none}
+#    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent
 
   springdoc:
     swagger-ui:
