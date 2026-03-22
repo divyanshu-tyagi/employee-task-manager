@@ -9,6 +9,8 @@
 
 A production-ready Employee Task Management System where managers assign tasks to employees, track progress, and measure efficiency using AI-powered analytics.
 
+🔗 **Live Demo:** [Swagger UI](https://taskflow-api-huarctduebcrbed3.centralindia-01.azurewebsites.net/swagger-ui/index.html)
+
 ## Features
 
 - 🔐 **Role-based Authentication** — ADMIN and EMPLOYEE roles with JWT
