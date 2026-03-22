@@ -54,14 +54,6 @@ jobs:
           SPRING_FLYWAY_ENABLED: true
           SPRING_JPA_HIBERNATE_DDL_AUTO: none
 
-      - name: List build files
-        run: ls -la build/libs/
-
-      - name: Rename JAR for deployment
-        run: |
-          cd build/libs
-          ls *.jar
-          cp $(ls *SNAPSHOT.jar | head -1) app.jar
 
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v3
